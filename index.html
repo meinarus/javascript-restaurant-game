@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sizzlog House - Sizzling Filipino Comfort Food</title>
+    <meta
+      name="description"
+      content="Hear the sizzle, taste the comfort. Sizzlog House serves hot, fresh Filipino silog meals on cast-iron sizzling plates."
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      /* custom tailwind theme */
+      @theme {
+        --color-sizzle-orange: #e8621c;
+        --color-egg-yolk: #f5a623;
+        --color-charcoal: #1a1a1a;
+        --color-cast-iron: #2d2d2d;
+        --color-cream: #fff8f0;
+        --color-warm-brown: #3d2b1f;
+        --color-rice-white: #f5f0e8;
+        --font-heading: "Fredoka", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
+    </style>
+    <style>
+      /* smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* nav blur effect */
+      .nav-blur {
+        backdrop-filter: blur(12px);
+      }
+
+      /* fade-in animation for sections */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* sizzle glow animation on hero */
+      @keyframes sizzle-glow {
+        0%,
+        100% {
+          text-shadow: 0 0 10px rgba(232, 98, 28, 0.3);
+        }
+        50% {
+          text-shadow:
+            0 0 25px rgba(232, 98, 28, 0.6),
+            0 0 50px rgba(245, 166, 35, 0.3);
+        }
+      }
+      .sizzle-text {
+        animation: sizzle-glow 2s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-charcoal text-rice-white">
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 right-0 z-50 nav-blur bg-charcoal/85 border-b border-sizzle-orange/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- logo and brand -->
+          <a href="#home" class="flex items-center gap-2">
+            <img
+              src="assets/logo.jpeg"
+              alt="Sizzlog House Logo"
+              class="w-10 h-10 rounded-full object-cover"
+            />
+            <span class="text-xl font-heading font-bold text-sizzle-orange"
+              >Sizzlog House</span
+            >
+          </a>
+          <!-- desktop nav links -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="#home"
+              class="text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors"
+              >About</a
+            >
+            <a
+              href="#menu"
+              class="text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors"
+              >Menu</a
+            >
+            <a
+              href="#game"
+              class="text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors"
+              >Game</a
+            >
+            <a
+              href="#menu"
+              class="px-5 py-2 bg-sizzle-orange text-white text-sm font-semibold rounded-lg hover:bg-sizzle-orange/85 transition-all"
+              >Order Now</a
+            >
+          </div>
+          <!-- mobile menu button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden text-rice-white/70 hover:text-sizzle-orange transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+        <!-- mobile nav dropdown -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden pb-4 space-y-2 border-t border-sizzle-orange/10"
+        >
+          <a
+            href="#home"
+            class="block text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors px-2 py-2"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors px-2 py-2"
+            >About</a
+          >
+          <a
+            href="#menu"
+            class="block text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors px-2 py-2"
+            >Menu</a
+          >
+          <a
+            href="#game"
+            class="block text-sm text-rice-white/70 hover:text-sizzle-orange transition-colors px-2 py-2"
+            >Game</a
+          >
+          <a
+            href="#menu"
+            class="block mt-2 px-5 py-2 bg-sizzle-orange text-white text-sm font-semibold rounded-lg text-center"
+            >Order Now</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center pt-16 bg-gradient-to-br from-charcoal via-warm-brown/40 to-charcoal relative overflow-hidden"
+    >
+      <!-- subtle background pattern -->
+      <div
+        class="absolute inset-0 opacity-5"
+        style="
+          background-image: radial-gradient(
+            circle at 2px 2px,
+            #f5a623 1px,
+            transparent 0
+          );
+          background-size: 40px 40px;
+        "
+      ></div>
+      <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32"
+      >
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <!-- text content -->
+          <div class="flex-1 text-center md:text-left">
+            <p
+              class="text-sm font-semibold text-egg-yolk uppercase tracking-widest mb-4 font-heading"
+            >
+              🔥 Filipino Sizzling Comfort Food
+            </p>
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl font-heading font-bold leading-tight mb-6"
+            >
+              Welcome to<br />
+              <span class="text-sizzle-orange sizzle-text">Sizzlog House!</span>
+            </h1>
+            <p
+              class="text-lg text-rice-white/70 leading-relaxed mb-8 max-w-xl mx-auto md:mx-0"
+            >
+              Hear the sizzle, taste the comfort. Welcome to your new favorite
+              spot for hot, fresh, and exciting Filipino comfort food!
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            >
+              <a
+                href="#menu"
+                class="inline-flex items-center justify-center px-8 py-3.5 bg-sizzle-orange text-white font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(232,98,28,0.4)] hover:scale-105"
+              >
+                🍽️ View Menu
+              </a>
+              <a
+                href="#game"
+                class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-egg-yolk text-egg-yolk font-semibold rounded-xl transition-all duration-300 hover:bg-egg-yolk/10 hover:scale-105"
+              >
+                🎮 Play Sizzlog Station
+              </a>
+            </div>
+          </div>
+          <!-- logo image -->
+          <div class="flex-shrink-0">
+            <img
+              src="assets/logo.jpeg"
+              alt="Sizzlog House Mascot"
+              class="w-64 h-64 md:w-80 md:h-80 rounded-3xl object-cover shadow-2xl shadow-sizzle-orange/20 border-4 border-sizzle-orange/20"
+            />
+          </div>
+        </div>
+
+        <!-- stats -->
+        <div
+          class="grid grid-cols-3 gap-6 mt-14 pt-8 border-t border-rice-white/10 max-w-xl mx-auto md:mx-0 text-center md:text-left"
+        >
+          <div>
+            <p
+              class="text-2xl md:text-3xl font-heading font-bold text-sizzle-orange"
+            >
+              10+
+            </p>
+            <p class="text-sm text-rice-white/50 mt-1">Sizzling Meals</p>
+          </div>
+          <div>
+            <p
+              class="text-2xl md:text-3xl font-heading font-bold text-egg-yolk"
+            >
+              100%
+            </p>
+            <p class="text-sm text-rice-white/50 mt-1">Hot Plates</p>
+          </div>
+          <div>
+            <p
+              class="text-2xl md:text-3xl font-heading font-bold text-sizzle-orange"
+            >
+              Fresh
+            </p>
+            <p class="text-sm text-rice-white/50 mt-1">Made Daily</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Makes Us Stand Out -->
+    <section id="about" class="py-20 md:py-28 bg-cast-iron">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p
+            class="text-sm font-semibold text-egg-yolk uppercase tracking-widest font-heading"
+          >
+            Why Choose Us
+          </p>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold mt-3">
+            What Makes Sizzlog House
+            <span class="text-sizzle-orange">Stand Out</span>
+          </h2>
+          <p class="text-rice-white/60 mt-4 max-w-2xl mx-auto">
+            We don't just serve food — we serve a full sensory experience!
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 fade-in">
+          <!-- card 1 -->
+          <div
+            class="bg-charcoal/60 border border-rice-white/5 rounded-2xl p-8 hover:border-sizzle-orange/30 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-sizzle-orange/10 flex items-center justify-center mb-6 text-3xl"
+            >
+              🔥
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-3">
+              Sizzling Hot Plates
+            </h3>
+            <p class="text-rice-white/60 leading-relaxed">
+              Unlike regular eateries, our meals arrive at your table roaring
+              hot on heavy cast-iron sizzling plates, keeping every bite fresh
+              and full of flavor.
+            </p>
+          </div>
+          <!-- card 2 -->
+          <div
+            class="bg-charcoal/60 border border-rice-white/5 rounded-2xl p-8 hover:border-egg-yolk/30 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-egg-yolk/10 flex items-center justify-center mb-6 text-3xl"
+            >
+              🍳
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-3">
+              Cook-at-Table Experience
+            </h3>
+            <p class="text-rice-white/60 leading-relaxed">
+              The meats get perfectly caramelized edges and the egg finishes
+              cooking right in front of you. It's not just a meal — it's a show!
+            </p>
+          </div>
+          <!-- card 3 -->
+          <div
+            class="bg-charcoal/60 border border-rice-white/5 rounded-2xl p-8 hover:border-sizzle-orange/30 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-sizzle-orange/10 flex items-center justify-center mb-6 text-3xl"
+            >
+              ❤️
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-3">
+              Filipino Comfort Food
+            </h3>
+            <p class="text-rice-white/60 leading-relaxed">
+              Classic silog combinations you grew up loving — Tapsilog, Tocilog,
+              Sisig, and more — all given a sizzling upgrade on our hot iron
+              plates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="py-20 md:py-28 bg-gradient-to-b from-charcoal to-cast-iron">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p
+            class="text-sm font-semibold text-sizzle-orange uppercase tracking-widest font-heading"
+          >
+            🏆 Crowd Favorites
+          </p>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold mt-3">
+            Our <span class="text-egg-yolk">Best Sellers</span>
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 fade-in">
+          <!-- best seller 1: tapsilog -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/30 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-64">
+              <img
+                src="assets/sizzling-tapsilog.jpeg"
+                alt="Sizzling Tapsilog"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-8">
+              <span
+                class="inline-block px-3 py-1 bg-sizzle-orange/10 text-sizzle-orange text-xs font-semibold rounded-full mb-3"
+                >#1 Best Seller</span
+              >
+              <h3 class="text-2xl font-heading font-bold mb-3">
+                Classic Sizzling Tapsilog
+              </h3>
+              <p class="text-rice-white/60 leading-relaxed">
+                Thinly sliced, tender beef tapa marinated in our secret sweet
+                and savory sauce. Served roaring hot so the edges get perfectly
+                caramelized on the cast-iron plate.
+              </p>
+            </div>
+          </div>
+          <!-- best seller 2: pork sisig -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-egg-yolk/30 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-64">
+              <img
+                src="assets/sizzling-pork-sisig.jpeg"
+                alt="Sizzling Pork Sisig"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-8">
+              <span
+                class="inline-block px-3 py-1 bg-egg-yolk/10 text-egg-yolk text-xs font-semibold rounded-full mb-3"
+                >#2 Best Seller</span
+              >
+              <h3 class="text-2xl font-heading font-bold mb-3">
+                Sizzling Pork Sisig
+              </h3>
+              <p class="text-rice-white/60 leading-relaxed">
+                Crunchy, savory, and slightly spicy chopped pork face that
+                crackles with every bite. Topped with fresh onions and a raw egg
+                that cooks beautifully as you mix it into the hot plate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section class="py-20 md:py-28 bg-cast-iron">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+          <p
+            class="text-sm font-semibold text-egg-yolk uppercase tracking-widest font-heading"
+          >
+            Our Story
+          </p>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold mt-3">
+            The <span class="text-sizzle-orange">History</span> of Sizzlog House
+          </h2>
+        </div>
+        <div class="max-w-3xl mx-auto fade-in">
+          <div
+            class="bg-charcoal/60 border border-rice-white/5 rounded-2xl p-10 relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sizzle-orange to-egg-yolk rounded-t-2xl"
+            ></div>
+            <div class="text-5xl mb-6">📖</div>
+            <p class="text-rice-white/70 leading-relaxed text-lg">
+              Sizzlog House started from late-night study cravings when we
+              realized our favorite takeout silog meals always got cold too
+              fast. We decided to combine the classic tapsilogan menu with heavy
+              cast-iron sizzling plates so that every single bite stays hot,
+              fresh, and full of flavor — from the first scoop of garlic rice to
+              the last.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Menu -->
+    <section
+      id="menu"
+      class="py-20 md:py-28 bg-gradient-to-b from-cast-iron to-charcoal"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+          <p
+            class="text-sm font-semibold text-sizzle-orange uppercase tracking-widest font-heading"
+          >
+            🍽️ Our Sizzling Menu
+          </p>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold mt-3">
+            What's <span class="text-egg-yolk">Cooking</span> Today?
+          </h2>
+          <p class="text-rice-white/60 mt-4 max-w-2xl mx-auto">
+            Every dish is served on a roaring hot cast-iron plate. Pick your
+            favorite silog!
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+          <!-- item 1 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-tapsilog.jpeg"
+                alt="Sizzling Tapsilog"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                1. Sizzling Tapsilog
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Thinly sliced, tender beef tapa marinated in our secret sweet
+                and savory sauce. Served roaring hot so the edges get perfectly
+                caramelized on the cast-iron plate.
+              </p>
+            </div>
+          </div>
+          <!-- item 2 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-tocilog.jpeg"
+                alt="Sizzling Tocilog"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                2. Sizzling Tocilog
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Juicy pork tocino with the perfect balance of sweet and garlicky
+                flavors. The sizzling plate glazes the pork in its own natural
+                syrups for a mouth-watering sticky finish.
+              </p>
+            </div>
+          </div>
+          <!-- item 3 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-pork-sisig.jpeg"
+                alt="Sizzling Pork Sisig"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                3. Sizzling Pork Sisig
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Crunchy, savory, and slightly spicy chopped pork face that
+                crackles with every bite. Topped with fresh onions and a raw egg
+                that cooks beautifully as you mix it.
+              </p>
+            </div>
+          </div>
+          <!-- item 4 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-bangsilog.jpeg"
+                alt="Sizzling Bangsilog"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                4. Sizzling Bangsilog
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                A large, golden-fried milkfish belly marinated in vinegar and
+                garlic. The hot plate keeps the skin perfectly crispy while the
+                inside stays soft and flaky.
+              </p>
+            </div>
+          </div>
+          <!-- item 5 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-lechon-kawali.jpeg"
+                alt="Sizzling Lechon Kawali"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                5. Sizzling Lechon Kawali
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Deep-fried pork belly chunks served with savory lechon sauce.
+                The sizzling iron pan ensures the fat melts perfectly while the
+                skin stays crunchy.
+              </p>
+            </div>
+          </div>
+          <!-- item 6 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-burger-steak.jpeg"
+                alt="Sizzling Burger Steak"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                6. Sizzling Burger Steak
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Two thick and juicy beef patties smothered in a rich mushroom
+                gravy. The gravy bubbles and thickens on the hot plate, perfect
+                with our toasted garlic rice.
+              </p>
+            </div>
+          </div>
+          <!-- item 7 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-corned-beef.jpeg"
+                alt="Sizzling Corned Beef"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                7. Sizzling Corned Beef
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Premium, chunky corned beef sautéed with white onions and crispy
+                potato cubes. The sizzling plate adds a smoky, toasted flavor to
+                this classic breakfast favorite.
+              </p>
+            </div>
+          </div>
+          <!-- item 8 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-hotsilog.jpeg"
+                alt="Sizzling Hotsilog"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                8. Sizzling Hotsilog
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Two classic, juicy red hotdogs scored and grilled to perfection.
+                A nostalgic childhood favorite given a fun, smoky upgrade on our
+                hot iron plates.
+              </p>
+            </div>
+          </div>
+          <!-- item 9 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-sizzle-orange/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-chicken-inasal.jpeg"
+                alt="Sizzling Chicken Inasal"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                9. Sizzling Chicken Inasal
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Boneless chicken thigh marinated in lemongrass and vinegar,
+                grilled until perfectly charred. We pour savory chicken oil over
+                it right as it hits the sizzling plate.
+              </p>
+            </div>
+          </div>
+          <!-- item 10 -->
+          <div
+            class="group bg-charcoal/60 border border-rice-white/5 rounded-2xl overflow-hidden hover:border-egg-yolk/20 transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-48">
+              <img
+                src="assets/sizzling-garlic-rice.jpeg"
+                alt="Extra Sizzling Garlic Rice"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-heading font-bold mb-2">
+                10. Extra Sizzling Garlic Rice
+              </h3>
+              <p class="text-rice-white/60 text-sm leading-relaxed">
+                Because one cup is never enough! Our garlic rice is extra
+                toasted, extra garlicky, and kept piping hot on a mini cast-iron
+                skillet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="py-20 md:py-28 bg-cast-iron">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 fade-in">
+          <p
+            class="text-sm font-semibold text-egg-yolk uppercase tracking-widest font-heading"
+          >
+            🎮 Mini Game
+          </p>
+          <h2 class="text-3xl md:text-5xl font-heading font-bold mt-3">
+            Play <span class="text-sizzle-orange">Sizzlog Station</span>
+          </h2>
+          <p class="text-rice-white/60 mt-4 max-w-2xl mx-auto">
+            A fast-paced cooking game! Take customer orders, grill the meat, fry
+            the egg, plate the sizzling meal, and serve it before they get
+            hangry!
+          </p>
+        </div>
+        <div class="flex flex-col items-center gap-8 fade-in">
+          <!-- embedded game container -->
+          <div
+            class="relative w-full max-w-[960px] mx-auto rounded-xl border-4 border-sizzle-orange/30 overflow-hidden shadow-2xl shadow-sizzle-orange/10 bg-[#111]"
+          >
+            <div
+              id="game-overlay-cover"
+              class="absolute inset-0 z-10 bg-black/60 flex flex-col items-center justify-center backdrop-blur-sm"
+            >
+              <img
+                src="assets/logo.jpeg"
+                alt="Sizzlog House"
+                class="w-20 h-20 rounded-full object-cover mb-4 shadow-lg shadow-sizzle-orange/20"
+              />
+              <p
+                class="text-rice-white text-xl mb-6 font-heading font-semibold"
+              >
+                Ready to cook?
+              </p>
+              <button
+                id="start-game-btn"
+                class="px-10 py-4 bg-sizzle-orange text-white text-lg font-heading font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(232,98,28,0.5)] hover:scale-105 cursor-pointer"
+              >
+                🎮 Start Game
+              </button>
+            </div>
+            <canvas
+              id="game-canvas"
+              width="960"
+              height="540"
+              class="w-full block"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-charcoal border-t border-rice-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="flex items-center justify-center gap-2 mb-3">
+          <img
+            src="assets/logo.jpeg"
+            alt="Sizzlog House"
+            class="w-8 h-8 rounded-full object-cover"
+          />
+          <span class="font-heading font-bold text-sizzle-orange"
+            >Sizzlog House</span
+          >
+        </div>
+        <p class="text-rice-white/40 text-sm">
+          &copy; 2026 Sizzlog House. All rights reserved. Hear the sizzle, taste
+          the comfort.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // mobile menu toggle
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // close mobile menu when a link is clicked
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // fade-in on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // game overlay cover open/close
+      const startBtn = document.getElementById("start-game-btn");
+      const gameCover = document.getElementById("game-overlay-cover");
+
+      startBtn.addEventListener("click", () => {
+        gameCover.classList.add("hidden");
+        if (typeof startGame === "function") startGame();
+
+        // Scroll to game
+        document.getElementById("game").scrollIntoView({ behavior: "smooth" });
+      });
+    </script>
+    <!-- game logic in separate file -->
+    <script src="game.js"></script>
+  </body>
+</html>
